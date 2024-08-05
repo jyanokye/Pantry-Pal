@@ -172,7 +172,7 @@ const SignIn = () => {
               Sign In with Facebook
             </Button>
             <Typography variant="body2" sx={{ mt: 2 }}>
-              Don't have an account?{' '}
+              
               <Link href="/signup" variant="body2">
                 Sign Up here
               </Link>

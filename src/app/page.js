@@ -62,14 +62,7 @@ const SignUp = () => {
   const [error, setError] = useState('');
   const router = useRouter();
 
-  useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (user) => {
-      if (user) {
-        router.push('/home'); // Redirect to home page if already logged in
-      }
-    });
-    return () => unsubscribe();
-  }, [router]);
+ 
 
   const handleEmailSignUp = async (e) => {
     e.preventDefault();
