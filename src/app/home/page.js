@@ -17,7 +17,6 @@ import axios from 'axios';
 import { useRouter } from 'next/navigation';
 
 // Pexels API Key (Replace with your own API Key)
-const PEXELS_API_KEY = 'UYJbox7J3zAWKTVoKeRe9H7MiyJw3VIgn1ltK4K6uyU736IUk3GhXMpw';
 
 // Function to fetch image from Pexels
 const fetchImageFromPexels = async (query) => {
@@ -28,7 +27,7 @@ const fetchImageFromPexels = async (query) => {
         per_page: 1, // Number of images to return
       },
       headers: {
-        Authorization: PEXELS_API_KEY
+        Authorization: process.env.NEXT_PUBLIC_PEXELS_API_KEY
       }
     });
 
@@ -67,10 +66,10 @@ export default function Home() {
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (!user) {
-        router.push('/signin'); // Redirect to sign-in if not authenticated
+        router.push('/signin'); 
       } else {
         setUser(user);
-        updateInventory(user.uid); // Update inventory when user is authenticated
+        updateInventory(user.uid); 
       }
     });
     return () => unsubscribe();
